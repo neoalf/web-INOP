@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamín Zeledón | Héroe Nacional</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Zeledón<span>1912</span></div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="biografia.html">Biografía</a></li>
+            <li><a href="gesta.html">Gesta</a></li>
+            <li class="has-submenu">
+                <a href="contexto.html">Contexto Histórico <span class="submenu-arrow">▾</span></a>
+                <ul class="submenu">
+                    <li><a href="nota-knox.html">La Nota Knox</a></li>
+                    <li><a href="tratado-dawson.html">El Tratado Dawson</a></li>
+                    <li><a href="carta-zeledon.html">Carta a su Esposa</a></li>
+                </ul>
+            </li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="#video-seccion" class="btn-video">Ver Video</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>General Benjamín Zeledón</h1>
+            <p>"Apóstol de la Libertad y la Dignidad Nacional"</p>
+            <a href="contexto.html" class="cta">Explorar Historia</a>
+        </div>
+    </header>
+
+    <section id="biografia" class="container">
+        <h2 class="section-title">Vida y Formación</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>El Intelectual</h3>
+                <p>Nacido en La Concordia en 1879, Zeledón no solo fue un militar, sino un brillante abogado y
+                    diplomático que entendió la ley como escudo de la patria.</p>
+            </div>
+            <div class="card">
+                <h3>El Legado</h3>
+                <p>Su sacrificio en el Coyotepe sembró la semilla en un joven Sandino, quien al ver su cuerpo, juró
+                    continuar la lucha por la soberanía.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gesta" class="quote-section">
+        <div class="quote-container">
+            <div class="quote-icon">"</div>
+            <blockquote class="historic-quote">
+                Cada gota de mi sangre derramada en defensa de mi patria y de su libertad, dará vida a cien
+                nicaragüenses que, como yo, protesten a balazos el atropello y la traición.
+            </blockquote>
+            <p class="quote-author">— General Benjamín Zeledón</p>
+            <p class="quote-context">Carta a su esposa, 1912</p>
+            <div class="reflection">
+                <p>La memoria histórica de Zeledón es el recordatorio de que en el pecho de cada nicaragüense late un
+                    sentido de orgullo que ninguna potencia puede comprar ni doblegar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="video-seccion" class="video-container">
+        <h2 class="section-title">Documental y Reflexión</h2>
+        <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TU_ID_AQUI" title="Video Zeledón"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Análisis profundo sobre el impacto de la gesta de 1912 en la Nicaragua actual.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Homenaje a Benjamín Zeledón - Nicaragua</p>
+    </footer>
+
+    <!-- Botón para volver arriba -->
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
