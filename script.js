@@ -48,3 +48,51 @@ backToTopButton.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// ==========================================
+// Lightbox (Visor de Imágenes) para la Galería
+// ==========================================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeBtn = document.querySelector('.lightbox-close');
+
+// Solo si existen los elementos en la página actual (para evitar errores en otras páginas)
+if (lightbox && lightboxImg && closeBtn) {
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = img.src;
+            /* Intentamos obtener el título que está justo debajo dentro .gallery-caption */
+            const captionBlock = img.parentElement.querySelector('.gallery-caption h3') ||
+                img.closest('.gallery-item').querySelector('.gallery-caption h3');
+
+            if (captionBlock) {
+                lightboxCaption.textContent = captionBlock.textContent;
+            } else {
+                lightboxCaption.textContent = img.alt || "";
+            }
+        });
+    });
+
+    // Cerrar con la X
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+
+    // Cerrar al hacer clic en cualquier parte fuera de la imagen (el fondo oscuro)
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.classList.remove('active');
+        }
+    });
+
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            lightbox.classList.remove('active');
+        }
+    });
+}

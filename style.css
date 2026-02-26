@@ -108,7 +108,7 @@ body {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url('https://images.unsplash.com/photo-1590424600600-49e0f63b2767?q=80&w=2000') no-repeat center center/cover;
+        url('img/BENJAMIN-ZELEDON.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,22 +118,22 @@ body {
 
 .hero-contexto {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?q=80&w=2000') no-repeat center center/cover;
+        url('img/hero_contexto.jpeg') no-repeat center center/cover;
 }
 
 .hero-galeria {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?q=80&w=2000') no-repeat center center/cover;
+        url('img/map_1900.png') no-repeat center center/cover;
 }
 
 .hero-biografia {
     background: linear-gradient(rgba(0, 20, 50, 0.78), rgba(0, 0, 0, 0.72)),
-        url('https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?q=80&w=2000') no-repeat center 30%/cover;
+        url('img/Biografia.jpg') no-repeat center 30%/cover;
 }
 
 .hero-gesta {
     background: linear-gradient(rgba(40, 5, 5, 0.82), rgba(0, 0, 0, 0.75)),
-        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2000') no-repeat center center/cover;
+        url('img/bandera-nicaragua.jpg') no-repeat center center/cover;
 }
 
 /* Tarjetas de pilares del Testamento Político */
@@ -498,12 +498,90 @@ body {
     line-height: 1.6;
 }
 
-/* Para cuando añadas imágenes reales, usa esta clase */
+
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox / Visor de Imágenes */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .grid {
@@ -621,7 +699,8 @@ body {
     margin: 0 auto;
 }
 
-.video-wrapper iframe {
+.video-wrapper iframe,
+.video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
@@ -768,17 +847,17 @@ body {
 /* Hero especial para documentos */
 .hero-documento {
     background: linear-gradient(rgba(0, 30, 70, 0.82), rgba(0, 0, 0, 0.75)),
-        url('https://images.unsplash.com/photo-1568217933489-4da8e0c7c3d3?q=80&w=2000') no-repeat center center/cover;
+        url('img/Hero_Knox.jpg') no-repeat center center/cover;
 }
 
 .hero-dawson {
     background: linear-gradient(rgba(0, 20, 50, 0.85), rgba(0, 0, 0, 0.78)),
-        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000') no-repeat center center/cover;
+        url('img/hero_dawson.jpeg') no-repeat center center/cover;
 }
 
 .hero-carta {
     background: linear-gradient(rgba(60, 20, 0, 0.82), rgba(0, 0, 0, 0.78)),
-        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2000') no-repeat center right/cover;
+        url('img/Benjamin Zeledon2.jpg') no-repeat center right/cover;
 }
 
 /* Insignia de categoría en el hero */
@@ -1251,4 +1330,81 @@ body {
     .doc-consequence-timeline {
         gap: 0.8rem;
     }
+
+    /* Subpages nav grid responsive */
+    .subpages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===================================
+   SECCIÓN DE SUBPÁGINAS (contexto.html)
+   =================================== */
+
+.subpages-nav-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.subpages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.subpage-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+    border-radius: 16px;
+    padding: 2.2rem 2rem;
+    box-shadow: 0 8px 30px rgba(0, 51, 102, 0.09);
+    border-top: 4px solid var(--accent);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subpage-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 51, 102, 0.18);
+}
+
+.subpage-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.subpage-card h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+
+.subpage-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.4rem;
+}
+
+.subpage-card-link {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.subpage-card:hover .subpage-card-link {
+    color: var(--accent);
+    border-color: var(--primary);
 }
