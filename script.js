@@ -96,3 +96,30 @@ if (lightbox && lightboxImg && closeBtn) {
         }
     });
 }
+
+// ==========================================
+// Menú Hamburguesa (Móvil)
+// ==========================================
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+if (burger && nav) {
+    burger.addEventListener('click', () => {
+        // Toggle Nav
+        nav.classList.toggle('nav-active-mobile');
+
+        // Burger Animation
+        burger.classList.toggle('toggle');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('nav-active-mobile')) {
+                nav.classList.remove('nav-active-mobile');
+                burger.classList.remove('toggle');
+            }
+        });
+    });
+}
